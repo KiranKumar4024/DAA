@@ -1,5 +1,3 @@
-package htl.com;
-
 public class ReverseAlternateLoop {
 
 	public static void main(String[] args) {
