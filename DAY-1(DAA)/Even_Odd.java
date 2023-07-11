@@ -12,6 +12,6 @@ public class Even_Odd {
 		else {
 			System.out.println("Odd");
 		}
-			
+		sc.close();	
 	}
 }
