@@ -3,29 +3,38 @@
 int push(int top,int n,int* stack){
     top=top+1;
     stack[top]=n;
-   // printf("yes");
-   // printf("%d",top);
+   //printf("yes");
+printf("%d\n",top);
     return top;
 }
 int  pop(int top)
 {
     top=top-1;
+    return top;
 }
-int op(char a,int* stack,int top){
+void op(char a,int* stack,int top){
     int res;
     switch(a){
 
         case '+':
             res=stack[top]+stack[top-1];
+            printf("%d\t%d\n",stack[top],stack[top-1]);
+            printf("add\n");
             break;
         case '-':
-            res=stack[top]-stack[top-1];
+            res=stack[top-1]-stack[top];
+            printf("%d\t%d\n",stack[top],stack[top-1]);
+            printf("sub\n");
             break;
         case '*':
             res=stack[top]*stack[top-1];
+            printf("%d\t%d\n",stack[top],stack[top-1]);
+            printf("mul\n");
             break;
         case '/':
-            res=stack[top]/stack[top-1];
+            res=stack[top-1]/stack[top];
+            printf("%d\t%d\n",stack[top],stack[top-1]);
+            printf("div\n");
             break;
         default:
             printf("INVALID");
@@ -33,12 +42,12 @@ int op(char a,int* stack,int top){
 
     //printf("add");
     }
-      top=pop(top);
+            top=pop(top);
             top=pop(top-1);
             push(top,res,stack);
-            //printf("%d",top);
-            //printf("%d",res);
-        return res;
+            printf("%d\n",top);
+            printf("%d\n",res);
+        //return res;
 }
 
 void main(){
@@ -59,15 +68,15 @@ for (int i=0;i<strlen(a);i++){
         top=push(top,(int)a[i]-48,stck);
     }
     else if (a[i]=='+' || a[i]=='-' || a[i]=='*' || a[i]=='/'){
-        res=op(a[i],stck,top);
+        op(a[i],stck,top);
     }
     else if (a[i]=='#'){
-        goto lb;
+        //goto lb;
         break;
     }
 
 }
 printf("outside");
-lb:
-    printf("RESULT:%d",res);
+/*lb:
+    printf("RESULT:%d",res);*/
 }
